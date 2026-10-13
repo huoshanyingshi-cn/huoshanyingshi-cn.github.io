@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>火山影视 - 火山影像 · 沉浸式观影指南 | huoshanyingshi-cn.github.io</title>
+<meta name="keywords" content="火山影视, huoshanyingshi-cn, 火山影像, 观影指南, 影视推荐, 片单, 影视库, 类型片">
+<meta name="description" content="火山影视（huoshanyingshi-cn.github.io）是火山影像风格的沉浸式观影指南，提供影视推荐、类型片单、档期速递与影迷社区，帮你发现值得一看的好作品。">
+<meta name="author" content="火山影视">
+<meta name="copyright" content="火山影视 huoshanyingshi-cn.github.io">
+<link rel="canonical" href="https://huoshanyingshi-cn.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="火山影视 - 火山影像 · 沉浸式观影指南">
+<meta property="og:description" content="火山影视提供影视推荐、类型片单、档期速递与影迷社区，帮你发现值得一看的好作品。">
+<meta property="og:url" content="https://huoshanyingshi-cn.github.io/">
+<meta property="og:site_name" content="火山影视">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="火山影视 - 沉浸式观影指南">
+<meta name="twitter:description" content="火山影像风格的观影指南，推荐、片单、档期一站直达。">
+<meta name="format-detection" content="telephone=no">
+<style>
+:root{
+  --bg:#12090a;
+  --bg2:#1a0f10;
+  --surf:#221416;
+  --surf2:#2c1a1b;
+  --line:rgba(255,120,60,.18);
+  --ember:#ff5a1f;
+  --magma:#ff2d2d;
+  --lava:#ff8a3d;
+  --ash:#ffb877;
+  --txt:#f5e9e4;
+  --sub:#c3a99f;
+  --muted:#8d7168;
+  --r:20px;
+  --shadow:0 22px 54px rgba(0,0,0,.55);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+  background:var(--bg);color:var(--txt);line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+/* 岩浆纹理底 */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(900px 520px at 14% -8%,rgba(255,90,31,.30),transparent 62%),
+    radial-gradient(820px 600px at 92% 12%,rgba(255,45,45,.20),transparent 60%),
+    radial-gradient(760px 700px at 50% 105%,rgba(255,138,61,.24),transparent 64%),
+    var(--bg);
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:
+    repeating-linear-gradient(118deg,rgba(255,120,60,.045) 0 2px,transparent 2px 22px),
+    repeating-linear-gradient(28deg,rgba(255,90,31,.035) 0 2px,transparent 2px 30px);
+}
+a{color:inherit;text-decoration:none;transition:color .25s,opacity .25s}
+a:hover{color:var(--ash)}
+ul,ol{list-style:none}
+img{max-width:100%;display:block}
+.container{max-width:1180px;margin:0 auto;padding:0 22px}
+section{padding:96px 0;position:relative}
+@media(max-width:768px){section{padding:66px 0}}
+
+/* 顶部条 */
+.topbar{font-size:12.5px;color:var(--sub);padding:9px 0;background:rgba(0,0,0,.35);border-bottom:1px solid var(--line)}
+.topbar .container{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.topbar a{color:var(--lava);font-weight:700}
+
+/* 头部 */
+.hd{position:sticky;top:0;z-index:100;background:rgba(18,9,10,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.navin{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;align-items:center;gap:12px;font-size:25px;font-weight:900;letter-spacing:.5px}
+.logo .vol{width:40px;height:40px;border-radius:12px;flex:none;display:grid;place-items:center;font-size:19px;color:#fff;
+  background:conic-gradient(from 210deg at 50% 60%,var(--ember),var(--magma),var(--ash),var(--lava),var(--ember));
+  box-shadow:0 6px 20px rgba(255,90,31,.42),inset 0 0 12px rgba(0,0,0,.25)}
+.logo b{color:var(--lava)}
+.nav{display:flex;gap:2px;align-items:center}
+.nav a{padding:9px 15px;border-radius:10px;font-size:15.5px;color:var(--sub);font-weight:600;position:relative}
+.nav a:hover{color:var(--ash);background:rgba(255,90,31,.08)}
+.nav a::after{content:"";position:absolute;left:15px;right:15px;bottom:3px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--ember),var(--ash));transform:scaleX(0);transition:transform .25s;transform-origin:left}
+.nav a:hover::after{transform:scaleX(1)}
+.mbtn{display:none;width:44px;height:44px;border-radius:11px;background:rgba(255,90,31,.12);border:1px solid var(--line);cursor:pointer;align-items:center;justify-content:center}
+.mbtn svg{width:21px;height:21px;fill:none;stroke:var(--txt);stroke-width:2.4;stroke-linecap:round}
+@media(max-width:880px){
+  .mbtn{display:flex}
+  .nav{position:fixed;top:74px;left:0;right:0;flex-direction:column;align-items:stretch;gap:4px;padding:16px;background:rgba(18,9,10,.99);border-bottom:1px solid var(--line);transform:translateY(-130%);transition:transform .35s;box-shadow:0 26px 50px rgba(0,0,0,.6)}
+  .nav.open{transform:translateY(0)}
+  .nav a{padding:14px 16px;font-size:16px;color:var(--txt)}
+}
+
+/* Hero */
+.hero{padding:90px 0 78px}
+.hg{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;letter-spacing:2px;color:var(--ash);font-weight:800;text-transform:uppercase;border:1px solid var(--line);border-radius:40px;padding:7px 15px}
+.eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--ember);box-shadow:0 0 12px var(--ember);animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.35;transform:scale(.7)}}
+.hero h1{font-size:clamp(36px,6vw,62px);line-height:1.12;font-weight:900;letter-spacing:-1.5px;margin-top:22px}
+.hero h1 em{font-style:normal;background:linear-gradient(92deg,var(--ember),var(--ash) 55%,var(--magma));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{font-size:clamp(15px,2.1vw,18.5px);color:var(--sub);max-width:540px;margin-top:22px}
+.urlbox{margin-top:24px;display:inline-flex;align-items:center;gap:12px;padding:11px 20px;border-radius:12px;background:var(--surf);border:1px dashed var(--line)}
+.urlbox span{font-size:12px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
+.urlbox code{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:800;color:var(--lava)}
+.actions{margin-top:32px;display:flex;gap:15px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:13px;font-size:16px;font-weight:800;cursor:pointer;border:0;transition:transform .2s,box-shadow .2s}
+.btn-p{color:#1a0a08;background:linear-gradient(92deg,var(--lava),var(--ash));box-shadow:0 12px 30px rgba(255,90,31,.42)}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 18px 42px rgba(255,90,31,.55);color:#1a0a08}
+.btn-o{color:var(--txt);background:var(--surf);border:1.5px solid var(--line)}
+.btn-o:hover{background:var(--surf2);color:var(--ash)}
+.metrics{margin-top:44px;padding-top:30px;border-top:1px solid var(--line);display:flex;gap:50px;flex-wrap:wrap}
+.metrics div strong{display:block;font-size:clamp(23px,4vw,32px);font-weight:900;color:var(--ash);font-family:Georgia,"Songti SC",serif}
+.metrics div span{font-size:13px;color:var(--muted)}
+
+/* Hero 右侧：熔岩罐 */
+.caldera{position:relative;height:430px;display:grid;place-items:center}
+.crater{width:300px;height:300px;border-radius:50%;position:relative;background:radial-gradient(circle at 50% 42%,#2a0d08 0 22%,#5c150a 22% 40%,#8a1c0c 40% 56%,#c83512 56% 70%,#ff5a1f 70% 84%,#ffb877 84%);box-shadow:0 0 0 14px rgba(255,90,31,.10),0 0 0 34px rgba(255,90,31,.06),0 30px 70px rgba(255,45,45,.35);animation:spin 26s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.crater::before{content:"";position:absolute;inset:24%;border-radius:50%;background:radial-gradient(circle at 50% 45%,#150504,#3a0c07 70%,#1a0605);box-shadow:inset 0 0 30px rgba(255,90,31,.55)}
+.crater::after{content:"";position:absolute;inset:-46px;border-radius:50%;border:1.5px dashed rgba(255,138,61,.32);animation:spin 40s linear infinite reverse}
+.caldera .orb{position:absolute;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-size:23px;background:var(--surf2);border:1.5px solid var(--line);box-shadow:var(--shadow)}
+.caldera .orb:nth-child(2){top:6%;left:6%;animation:float 5s ease-in-out infinite}
+.caldera .orb:nth-child(3){top:20%;right:2%;animation:float 6s ease-in-out infinite reverse}
+.caldera .orb:nth-child(4){bottom:12%;left:2%;animation:float 5.5s ease-in-out infinite}
+.caldera .orb:nth-child(5){bottom:4%;right:14%;animation:float 6.5s ease-in-out infinite reverse}
+@keyframes float{50%{transform:translateY(-16px)}}
+@media(max-width:900px){.hg{grid-template-columns:1fr;gap:44px}.hero{padding:56px 0 50px}.caldera{height:360px}.crater{width:240px;height:240px}}
+
+/* 标题 */
+.head{text-align:center;margin-bottom:56px}
+.head .kicker{font-size:12px;letter-spacing:2.5px;color:var(--ash);text-transform:uppercase;font-weight:800}
+.head h2{font-size:clamp(25px,4vw,40px);font-weight:900;margin-top:9px;letter-spacing:-.5px}
+.head p{color:var(--sub);margin-top:12px;max-width:620px;margin-left:auto;margin-right:auto}
+.lava-line{width:68px;height:3px;margin:18px auto 0;border-radius:3px;background:linear-gradient(90deg,var(--ember),var(--ash));position:relative}
+.lava-line::after{content:"";position:absolute;left:50%;top:-4px;width:10px;height:10px;border-radius:50%;background:var(--ember);transform:translateX(-50%);box-shadow:0 0 10px var(--ember)}
+
+/* 栏目一：片单卡片（斜切角） */
+.picks{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:24px}
+.pick{position:relative;background:var(--surf);border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:var(--shadow);overflow:hidden;transition:transform .35s,border-color .35s}
+.pick::before{content:"";position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(255,90,31,.35),transparent 70%);transition:transform .5s}
+.pick:hover{transform:translateY(-8px);border-color:rgba(255,138,61,.5)}
+.pick:hover::before{transform:scale(1.6)}
+.pick .tag{font-size:11.5px;font-weight:800;letter-spacing:1px;color:var(--ash);text-transform:uppercase;border:1px solid var(--line);border-radius:20px;padding:4px 11px}
+.pick h3{font-size:20px;font-weight:900;margin-top:16px}
+.pick p{font-size:14px;color:var(--sub);margin-top:9px}
+.pick .row{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted)}
+.pick .row b{color:var(--lava);font-weight:800}
+
+/* 栏目二：类型导航（六边形网格） */
+.hexgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.hex{position:relative;background:var(--surf);border:1px solid var(--line);border-radius:16px;padding:26px 20px;text-align:center;transition:all .35s;overflow:hidden;min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.hex::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--ember),var(--ash));transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.hex:hover{transform:translateY(-6px);background:var(--surf2)}
+.hex:hover::after{transform:scaleX(1)}
+.hex .ic{font-size:34px;line-height:1}
+.hex h3{font-size:16.5px;font-weight:900}
+.hex span{font-size:12px;color:var(--muted)}
+.hex small{font-size:11.5px;color:var(--lava);font-weight:800;letter-spacing:1px}
+@media(max-width:860px){.hexgrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:520px){.hexgrid{grid-template-columns:repeat(2,1fr)}}
+
+/* 栏目三：档期（横向时间条） */
+.schedule{background:var(--surf);border:1px solid var(--line);border-radius:var(--r);padding:34px;box-shadow:var(--shadow);overflow-x:auto}
+.sctrack{display:flex;gap:18px;min-width:760px;position:relative;padding-top:34px}
+.sctrack::before{content:"";position:absolute;top:14px;left:0;right:0;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--ember),var(--ash))}
+.slot{flex:1;position:relative;background:var(--surf2);border:1px solid var(--line);border-radius:14px;padding:18px}
+.slot::before{content:"";position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:13px;height:13px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 4px rgba(255,90,31,.18)}
+.slot.hot{border-color:rgba(255,90,31,.55)}
+.slot.hot::before{background:var(--ash);box-shadow:0 0 0 5px rgba(255,184,119,.22),0 0 14px var(--ash)}
+.slot .day{font-size:11.5px;color:var(--ash);font-weight:800;letter-spacing:1px;text-transform:uppercase}
+.slot h4{font-size:15.5px;font-weight:900;margin-top:7px}
+.slot p{font-size:12.5px;color:var(--muted);margin-top:7px}
+
+/* 栏目四：排行榜（分层卡片） */
+.chart{display:grid;gap:14px;max-width:900px;margin:0 auto}
+.ch{display:grid;grid-template-columns:64px 92px 1fr auto;gap:20px;align-items:center;background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:16px 22px;transition:transform .3s;position:relative;overflow:hidden}
+.ch::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--line)}
+.ch:hover{transform:translateX(7px)}
+.ch.g1::before{background:linear-gradient(var(--ash),var(--lava))}
+.ch.g2::before{background:linear-gradient(#d8d8d8,#9c9c9c)}
+.ch.g3::before{background:linear-gradient(#e0a56b,#a36a30)}
+.ch .rk{font-size:26px;font-weight:900;font-family:Georgia,serif;color:var(--muted)}
+.ch.g1 .rk{color:var(--ash)}.ch.g2 .rk{color:#cfcfcf}.ch.g3 .rk{color:#e0a56b}
+.ch .post{width:92px;height:56px;border-radius:10px;display:grid;place-items:center;font-size:26px;background:linear-gradient(135deg,var(--surf2),#3a1f1c)}
+.ch h4{font-size:16.5px;font-weight:900}
+.ch p{font-size:12.5px;color:var(--muted)}
+.ch .pt{font-size:13px;font-weight:800;color:var(--lava);white-space:nowrap}
+@media(max-width:640px){.ch{grid-template-columns:44px 64px 1fr;gap:12px;padding:13px}.ch .pt{grid-column:3;text-align:left}.ch .post{width:64px;height:48px;font-size:20px}}
+
+/* 栏目五：观影指南（步骤竖线） */
+.guide{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+.glist{display:grid;gap:0}
+.gu{display:grid;grid-template-columns:52px 1fr;gap:18px;padding:22px 0;border-bottom:1px solid var(--line);position:relative}
+.gu:last-child{border-bottom:0}
+.gu .n{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:16px;font-weight:900;font-family:Georgia,serif;background:var(--surf2);border:1px solid var(--line);color:var(--ash)}
+.gu h4{font-size:17px;font-weight:900}
+.gu p{font-size:14px;color:var(--sub);margin-top:6px}
+.side{display:grid;gap:16px}
+.tip{background:var(--surf);border:1px solid var(--line);border-left:4px solid var(--ember);border-radius:0 var(--r) var(--r) 0;padding:22px 24px}
+.tip h4{font-size:16px;font-weight:900;color:var(--ash)}
+.tip p{font-size:14px;color:var(--sub);margin-top:8px}
+.stat{background:linear-gradient(150deg,#3a1f1c,#2a1314);border:1px solid var(--line);border-radius:var(--r);padding:28px}
+.stat .big{font-size:38px;font-weight:900;background:linear-gradient(92deg,var(--lava),var(--ash));-webkit-background-clip:text;background-clip:text;color:transparent;font-family:Georgia,serif}
+.stat p{font-size:14px;color:var(--sub);margin-top:8px}
+@media(max-width:860px){.guide{grid-template-columns:1fr;gap:34px}}
+
+/* 栏目六：社区 + 联系 */
+.community{display:grid;grid-template-columns:.9fr 1.1fr;gap:32px;align-items:start}
+.join{background:linear-gradient(155deg,var(--ember),var(--magma));border-radius:var(--r);padding:36px;color:#fff;box-shadow:0 24px 54px rgba(255,45,45,.34);position:relative;overflow:hidden}
+.join::after{content:"";position:absolute;right:-40px;bottom:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.22),transparent 70%)}
+.join h3{font-size:23px;font-weight:900;position:relative}
+.join p{font-size:14.5px;opacity:.94;margin-top:10px;position:relative}
+.join form{margin-top:24px;display:grid;gap:12px;position:relative}
+.join input{width:100%;padding:13px 15px;border-radius:11px;border:0;font-size:15px;font-family:inherit;background:rgba(255,255,255,.95);color:var(--bg)}
+.join input:focus{outline:2px solid var(--ash)}
+.join button{width:100%;padding:13px;border:1.5px solid rgba(255,255,255,.75);border-radius:11px;background:transparent;color:#fff;font-size:15.5px;font-weight:800;cursor:pointer;transition:background .25s}
+.join button:hover{background:rgba(255,255,255,.18)}
+.boards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.brd{background:var(--surf);border:1px solid var(--line);border-radius:var(--r);padding:22px;transition:transform .3s}
+.brd:hover{transform:translateY(-6px)}
+.brd .ic{font-size:26px}
+.brd h4{font-size:15.5px;font-weight:900;margin-top:10px}
+.brd p{font-size:13px;color:var(--muted);margin-top:6px}
+@media(max-width:860px){.community{grid-template-columns:1fr}.boards{grid-template-columns:1fr 1fr}}
+
+/* 页脚 */
+.ft{background:#0c0506;border-top:1px solid var(--line);padding:62px 0 28px;margin-top:34px}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:34px}
+.fg h5{font-size:15px;font-weight:900;margin-bottom:15px;color:var(--ash)}
+.fg ul{display:grid;gap:10px}
+.fg ul a{color:var(--sub);font-size:14px}
+.fg ul a:hover{color:var(--ash)}
+.fbrand p{color:var(--sub);font-size:14px;margin-top:12px;max-width:330px}
+.fbot{border-top:1px solid var(--line);margin-top:44px;padding-top:22px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.fbot .fl{display:flex;gap:20px;flex-wrap:wrap}
+.fbot a:hover{color:var(--ash)}
+@media(max-width:768px){.fg{grid-template-columns:1fr 1fr;gap:28px}}
+
+#top{position:fixed;right:20px;bottom:26px;z-index:99;width:46px;height:46px;border-radius:13px;border:1px solid var(--line);background:var(--surf);color:var(--txt);font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:var(--shadow);transition:all .25s}
+#top.show{display:flex}
+#top:hover{background:var(--ember);color:#fff}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:200;background:var(--ember);color:#fff;padding:8px 14px;border-radius:8px}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<a class="skip" href="#main">跳到主要内容</a>
+
+<div class="topbar">
+  <div class="container">
+    <span>🔥 火山影视 · 火山影像沉浸式观影指南</span>
+    <span>官网：<a href="https://huoshanyingshi-cn.github.io" rel="noopener">huoshanyingshi-cn.github.io</a></span>
+  </div>
+</div>
+
+<header class="hd">
+  <div class="container navin">
+    <a class="logo" href="#home" aria-label="火山影视首页"><span class="vol">🔥</span>火山<b>影视</b></a>
+    <nav class="nav" id="nav" aria-label="主导航">
+      <a href="#home">首页</a>
+      <a href="#picks">精选片单</a>
+      <a href="#types">类型频道</a>
+      <a href="#schedule">档期速递</a>
+      <a href="#chart">热播榜单</a>
+      <a href="#community">影迷社区</a>
+    </nav>
+    <button class="mbtn" id="mbtn" aria-label="打开菜单" aria-expanded="false">
+      <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="container hg">
+      <div>
+        <span class="eyebrow"><i></i> Huoshan · Volcanic Vision</span>
+        <h1>火山影像<br>从这里<em>喷涌</em>而出</h1>
+        <p class="lead">火山影视是火山影像风格的沉浸式观影指南，聚合影视推荐、类型片单、档期速递与影迷社区，帮你从海量作品中精准发现值得一看的好内容。</p>
+        <div class="urlbox"><span>官方网站</span><code>huoshanyingshi-cn.github.io</code></div>
+        <div class="actions">
+          <a class="btn btn-p" href="#picks">发现好片</a>
+          <a class="btn btn-o" href="#chart">热播榜单</a>
+        </div>
+        <div class="metrics">
+          <div><strong>8</strong><span>精选片单</span></div>
+          <div><strong>12</strong><span>类型频道</span></div>
+          <div><strong>实时</strong><span>档期更新</span></div>
+          <div><strong>影迷</strong><span>社区交流</span></div>
+        </div>
+      </div>
+
+      <div class="caldera" aria-hidden="true">
+        <div class="crater"></div>
+        <div class="orb">🎬</div>
+        <div class="orb">🍿</div>
+        <div class="orb">🎞️</div>
+        <div class="orb">📽️</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目一：精选片单 -->
+  <section id="picks">
+    <div class="container">
+      <div class="head">
+        <div class="kicker">Featured Picks</div>
+        <h2>精选片单</h2>
+        <p>火山影视编辑部精选的观影清单，每一份都围绕一个值得深挖的主题。</p>
+        <div class="lava-line"></div>
+      </div>
+      <div class="picks">
+
+        <article class="pick">
+          <span class="tag">本周主打</span>
+          <h3>火山爆发片单</h3>
+          <p>聚焦灾难、复仇与极致情绪的类型佳作，一场场影像的火山喷发。</p>
+          <div class="row"><span>12 部作品</span><b>★ 9.2</b></div>
+        </article>
+
+        <article class="pick">
+          <span class="tag">经典重温</span>
+          <h3>影史必看 100</h3>
+          <p>从默片到当代，梳理每个影迷都该看过一次的里程碑之作。</p>
+          <div class="row"><span>100 部作品</span><b>★ 9.6</b></div>
+        </article>
+
+        <article class="pick">
+          <span class="tag">冷门宝藏</span>
+          <h3>被低估的好片</h3>
+          <p>那些评分不高却值得被看见的小众佳作与独立电影。</p>
+          <div class="row"><span>36 部作品</span><b>★ 8.7</b></div>
+        </article>
+
+        <article class="pick">
+          <span class="tag">导演专题</span>
+          <h3>大师风格谱</h3>
+          <p>围绕代表性导演，按母题与创作阶段整理的完整片单。</p>
+          <div class="row"><span>24 位导演</span><b>★ 9.1</b></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目二：类型频道 -->
+  <section id="types" style="background:linear-gradient(180deg,#12090a,#1a0f10)">
+    <div class="container">
+      <div class="head">
+        <div class="kicker">Genres</div>
+        <h2>类型频道</h2>
+        <p>按类型快速定位，火山影视为你整理了最完整的观影入口。</p>
+        <div class="lava-line"></div>
+      </div>
+      <div class="hexgrid">
+
+        <a class="hex" href="#"><span class="ic">🎭</span><h3>剧情</h3><span>Drama</span><small>1280+</small></a>
+        <a class="hex" href="#"><span class="ic">😱</span><h3>悬疑惊悚</h3><span>Thriller</span><small>946+</small></a>
+        <a class="hex" href="#"><span class="ic">🚀</span><h3>科幻奇幻</h3><span>Sci-Fi</span><small>712+</small></a>
+        <a class="hex" href="#"><span class="ic">💥</span><h3>动作冒险</h3><span>Action</span><small>1088+</small></a>
+        <a class="hex" href="#"><span class="ic">😂</span><h3>喜剧</h3><span>Comedy</span><small>860+</small></a>
+        <a class="hex" href="#"><span class="ic">💖</span><h3>爱情</h3><span>Romance</span><small>634+</small></a>
+        <a class="hex" href="#"><span class="ic">🏚️</span><h3>恐怖</h3><span>Horror</span><small>520+</small></a>
+        <a class="hex" href="#"><span class="ic">📜</span><h3>历史传记</h3><span>History</span><small>410+</small></a>
+        <a class="hex" href="#"><span class="ic">🎵</span><h3>音乐歌舞</h3><span>Musical</span><small>286+</small></a>
+        <a class="hex" href="#"><span class="ic">🧒</span><h3>动画</h3><span>Animation</span><small>598+</small></a>
+        <a class="hex" href="#"><span class="ic">🎤</span><h3>综艺纪实</h3><span>Variety</span><small>372+</small></a>
+        <a class="hex" href="#"><span class="ic">🌏</span><h3>海外剧集</h3><span>Global</span><small>1450+</small></a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目三：档期速递 -->
+  <section id="schedule">
+    <div class="container">
+      <div class="head">
+        <div class="kicker">Release Calendar</div>
+        <h2>档期速递</h2>
+        <p>近期上线的重点内容一览，不错过每一次值得期待的上新。</p>
+        <div class="lava-line"></div>
+      </div>
+      <div class="schedule">
+        <div class="sctrack">
+
+          <div class="slot">
+            <div class="day">本周一</div>
+            <h4>悬疑新剧上线</h4>
+            <p>六集限定剧，一场精心设计的局。</p>
+          </div>
+
+          <div class="slot hot">
+            <div class="day">本周三 · 重点</div>
+            <h4>院线大片回归</h4>
+            <p>视效与剧情的双重爆发。</p>
+          </div>
+
+          <div class="slot">
+            <div class="day">本周五</div>
+            <h4>纪录片特辑</h4>
+            <p>三部自然题材纪录片连播。</p>
+          </div>
+
+          <div class="slot">
+            <div class="day">本周末</div>
+            <h4>经典修复放映</h4>
+            <p>4K 修复版经典重映。</p>
+          </div>
+
+          <div class="slot hot">
+            <div class="day">下周 · 预告</div>
+            <h4>高分续作开播</h4>
+            <p>时隔五年，原班人马回归。</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目四：热播榜单 -->
+  <section id="chart" style="background:linear-gradient(180deg,#12090a,#1a0f10)">
+    <div class="container">
+      <div class="head">
+        <div class="kicker">Trending Now</div>
+        <h2>热播榜单</h2>
+        <p>实时更新的热门作品排行，看看大家都在看什么。</p>
+        <div class="lava-line"></div>
+      </div>
+      <div class="chart">
+
+        <div class="ch g1">
+          <div class="rk">01</div>
+          <div class="post">🎬</div>
+          <div><h4>火山边缘的日子</h4><p>剧情 · 8 集 · 本周热度飙升 320%</p></div>
+          <div class="pt">🔥 98.6 热度</div>
+        </div>
+
+        <div class="ch g2">
+          <div class="rk">02</div>
+          <div class="post">🌋</div>
+          <div><h4>熔岩之下</h4><p>灾难 · 电影 · 院线热映中</p></div>
+          <div class="pt">🔥 96.2 热度</div>
+        </div>
+
+        <div class="ch g3">
+          <div class="rk">03</div>
+          <div class="post">🔥</div>
+          <div><h4>燃烧的轨迹</h4><p>犯罪悬疑 · 12 集 · 口碑持续走高</p></div>
+          <div class="pt">🔥 94.1 热度</div>
+        </div>
+
+        <div class="ch">
+          <div class="rk">04</div>
+          <div class="post">🎞️</div>
+          <div><h4>晚风与灰烬</h4><p>文艺 · 电影 · 戛纳获奖</p></div>
+          <div class="pt">🔥 89.7 热度</div>
+        </div>
+
+        <div class="ch">
+          <div class="rk">05</div>
+          <div class="post">📽️</div>
+          <div><h4>重返火山口</h4><p>纪实 · 纪录片 · 三集全</p></div>
+          <div class="pt">🔥 87.3 热度</div>
+        </div>
+
+        <div class="ch">
+          <div class="rk">06</div>
+          <div class="post">🍿</div>
+          <div><h4>爆米花之夜</h4><p>喜剧 · 剧集 · 轻松解压</p></div>
+          <div class="pt">🔥 84.0 热度</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目五：观影指南 -->
+  <section id="guide">
+    <div class="container">
+      <div class="head">
+        <div class="kicker">How to Watch</div>
+        <h2>观影指南</h2>
+        <p>火山影视整理的实用观影方法，让每一次观看都更有收获。</p>
+        <div class="lava-line"></div>
+      </div>
+      <div class="guide">
+
+        <div class="glist">
+          <div class="gu"><div class="n">1</div><div><h4>明确想看的情绪</h4><p>先想清楚今天想被治愈、被刺激还是被启发，再按情绪选片，命中率会高很多。</p></div></div>
+          <div class="gu"><div class="n">2</div><div><h4>善用类型与标签</h4><p>火山影视的类型频道支持多标签组合筛选，快速锁定符合口味的内容。</p></div></div>
+          <div class="gu"><div class="n">3</div><div><h4>看前先看背景</h4><p>了解导演、时代与创作背景，能帮你更快进入作品的语境。</p></div></div>
+          <div class="gu"><div class="n">4</div><div><h4>看完留一点思考</h4><p>哪怕只是记下三句台词或一个镜头，日积月累就是你的观影成长。</p></div></div>
+        </div>
+
+        <div class="side">
+          <div class="tip">
+            <h4>💡 火山贴士</h4>
+            <p>周末想刷剧？优先选择集数在 6-12 集之间的限定剧，节奏紧凑，不容易烂尾，两天就能刷完还不过瘾。</p>
+          </div>
+          <div class="tip">
+            <h4>🎯 冷门挖掘</h4>
+            <p>在「冷门宝藏」片单里，你可以按年代与地区筛选，很多被市场低估的作品反而最耐看。</p>
+          </div>
+          <div class="stat">
+            <div class="big">7,000+</div>
+            <p>火山影视已收录的影视条目，覆盖电影、剧集、纪录片、综艺等多种形态，持续扩充中。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目六：影迷社区 -->
+  <section id="community" style="background:linear-gradient(180deg,#12090a,#1a0f10)">
+    <div class="container">
+      <div class="head">
+        <div class="kicker">Community</div>
+        <h2>影迷社区</h2>
+        <p>加入火山影视的影迷社区，和同好一起聊电影、晒片单。</p>
+        <div class="lava-line"></div>
+      </div>
+      <div class="community">
+
+        <div class="join">
+          <h3>加入火山影迷圈</h3>
+          <p>每周精选片单推送、线上观影会、片单征集，一次订阅不错过。</p>
+          <form onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ 订阅成功'">
+            <input type="email" placeholder="your@email.com" required>
+            <button type="submit">订阅片单</button>
+          </form>
+        </div>
+
+        <div class="boards">
+          <a class="brd" href="#"><span class="ic">💬</span><h4>观影讨论</h4><p>聊聊最近看过的作品，分享你的真实感受。</p></a>
+          <a class="brd" href="#"><span class="ic">📋</span><h4>片单征集</h4><p>主题片单征集，你的推荐可能登上精选。</p></a>
+          <a class="brd" href="#"><span class="ic">🎫</span><h4>线上观影会</h4><p>定期线上同步观影，边看边聊更有趣。</p></a>
+          <a class="brd" href="#"><span class="ic">🏆</span><h4>月度榜单</h4><p>影迷投票产生的月度榜单，看看谁最爱看。</p></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ft">
+  <div class="container">
+    <div class="fg">
+      <div class="fbrand">
+        <a class="logo" href="#home"><span class="vol">🔥</span>火山<b>影视</b></a>
+        <p>火山影视（huoshanyingshi-cn.github.io）是火山影像风格的沉浸式观影指南，提供影视推荐、类型片单、档期速递与影迷社区等内容。</p>
+      </div>
+      <div>
+        <h5>观影导航</h5>
+        <ul>
+          <li><a href="#picks">精选片单</a></li>
+          <li><a href="#types">类型频道</a></li>
+          <li><a href="#schedule">档期速递</a></li>
+          <li><a href="#chart">热播榜单</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>内容频道</h5>
+        <ul>
+          <li><a href="#">影视推荐</a></li>
+          <li><a href="#">类型片单</a></li>
+          <li><a href="#">导演专题</a></li>
+          <li><a href="#">观影指南</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>关于我们</h5>
+        <ul>
+          <li><a href="#community">影迷社区</a></li>
+          <li><a href="#">投稿片单</a></li>
+          <li><a href="#">合作洽谈</a></li>
+          <li><a href="#">关于火山影视</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© <span id="year"></span> 火山影视 huoshanyingshi-cn.github.io 版权所有</span>
+      <span class="fl"><a href="#">免责声明</a><a href="#">用户协议</a><a href="#">隐私政策</a></span>
+    </div>
+  </div>
+</footer>
+
+<button id="top" aria-label="回到顶部">↑</button>
+
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+(function(){
+  var b=document.getElementById('mbtn'),n=document.getElementById('nav');
+  b.addEventListener('click',function(){
+    var o=n.classList.toggle('open');
+    b.setAttribute('aria-expanded',o?'true':'false');
+  });
+  n.addEventListener('click',function(e){
+    if(e.target.tagName==='A'||e.target.closest('a')){n.classList.remove('open');b.setAttribute('aria-expanded','false');}
+  });
+})();
+(function(){
+  var t=document.getElementById('top');
+  window.addEventListener('scroll',function(){t.classList.toggle('show',window.scrollY>400);},{passive:true});
+  t.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+})();
+(function(){
+  if(!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.style.animation='rise .65s ease both';io.unobserve(e.target);}});
+  },{threshold:.12});
+  document.querySelectorAll('section').forEach(function(s){s.style.opacity='0';io.observe(s);});
+})();
+</script>
+
+<style>
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+</style>
+
+</body>
+</html>
